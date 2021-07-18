@@ -21,9 +21,8 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
   ttf-freefont \
   ttf-liberation \
   ttf-ubuntu-font-family \
-  fontconfig
-
-RUN npm install
+  fontconfig \
+  && yarn
 
 COPY . /usr/src/bot
 
