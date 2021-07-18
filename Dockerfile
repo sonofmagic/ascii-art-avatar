@@ -5,6 +5,7 @@ WORKDIR /usr/src/bot
 
 COPY package.json /usr/src/bot
 
+# 注册阿里云 alpinelinux 镜像地址,防止下载过慢
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories \
   && apk add --no-cache \
   build-base \

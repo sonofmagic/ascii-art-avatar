@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/sonofmagic/ascii-art-avatar/issues"
   },
-  "homepage": "https://github.com/sonofmagic/ascii-art-avatar#readme"
+  "homepage": "https://github.com/sonofmagic/ascii-art-avatar#readme",
+  "dependencies": {
+    "ascii-art-image": "^1.4.0",
+    "canvas": "^2.8.0"
+  }
 }
