@@ -1,0 +1,20 @@
+{
+  "name": "ascii-art-avatar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sonofmagic/ascii-art-avatar.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sonofmagic/ascii-art-avatar/issues"
+  },
+  "homepage": "https://github.com/sonofmagic/ascii-art-avatar#readme"
+}
