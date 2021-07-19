@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./src/listener.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,16 @@
   },
   "homepage": "https://github.com/sonofmagic/ascii-art-avatar#readme",
   "dependencies": {
+    "@koa/router": "^10.0.0",
     "ascii-art-image": "^1.4.0",
-    "canvas": "^2.8.0"
+    "canvas": "^2.8.0",
+    "koa": "^2.13.1"
+  },
+  "devDependencies": {
+    "eslint": "7.12.1",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-promise": "4.2.1"
   }
 }

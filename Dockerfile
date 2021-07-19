@@ -3,7 +3,7 @@ FROM node:14-alpine
 RUN mkdir -p /usr/src/bot
 WORKDIR /usr/src/bot
 
-COPY package.json /usr/src/bot
+COPY package.json yarn.lock /usr/src/bot/
 
 # 注册阿里云 alpinelinux 镜像地址,防止下载过慢
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories \
@@ -28,4 +28,5 @@ COPY . /usr/src/bot
 
 EXPOSE 9000
 
-CMD ["node", "index.js"]
+ENTRYPOINT ["yarn" ,"start"]
+# CMD ["node", "index.js"]
