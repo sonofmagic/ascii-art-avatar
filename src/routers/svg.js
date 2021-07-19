@@ -21,7 +21,7 @@ router.get('/', (koaCtx, next) => {
   ctx.lineTo(50, 102)
   ctx.lineTo(50 + text.width, 102)
   ctx.stroke()
-  const svgUrl = canvas.toDataURL()
+  const svgUrl = canvas.toBuffer().toString()
   koaCtx.body = svgUrl
 })
 
