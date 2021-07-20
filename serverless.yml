@@ -1,0 +1,56 @@
+app: github-node-canvas
+stage: dev
+component: scf
+name: github-node-canvas-scf
+inputs:
+  name: ${name}
+  region: ap-shanghai
+  # runtime: Nodejs12.16
+  # src:
+  #   src: ./dist
+  #   exclude:
+  #     - .env
+  #     - package-lock.json
+  #     - package.json
+  #     - yarn.lock
+  #     - README.md
+  #     - node_modules
+  #     - .eslintrc.js
+  type: web
+  # handler: scf_bootstrap
+  image: # 镜像配置
+    # registryId: tcr-xxx # 容器镜像服务名称，企业版必须
+    imageType: personal # 镜像类型：personal - 个人，enterprise - 企业版，public - 镜像模板
+    imageUrl: ${env:IMAGE_URI}
+    # command: node index.js # 容器启动命名
+    # args: test # 容器启动参数
+  # installDependency: true
+  # environment:
+  #   variables:
+  #     AppID: ${env:APP_ID}
+  #     AppSecret: ${env:APP_SECRET}
+  #     VerificationToken: ${env:VERIFICATION_TOKEN}
+  #     EncryptKey: ${env:ENCRYPT_KEY}
+  events:
+    - apigw:
+        parameters:
+          protocols:
+            - http
+            - https
+          environment: release
+          endpoints:
+            - path: /
+              method: ANY
+              # function:
+              #   type: web
+          customDomains:
+            - domain: svg.icebreaker.top
+              certificateId: ${env:CERTIFICATE_ID}
+              isForcedHttps: true
+              isDefaultMapping: false
+              pathMappingSet:
+                - path: /
+                  environment: release
+              protocols: # 绑定自定义域名的协议类型，默认与服务的前端协议一致。
+                - http # 支持http协议
+                - https # 支持https协议

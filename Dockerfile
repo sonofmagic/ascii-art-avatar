@@ -24,7 +24,7 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
   fontconfig \
   && yarn --prod
 
-COPY . /usr/src/bot
+COPY ./src /usr/src/bot/src
 
 EXPOSE 9000
 
