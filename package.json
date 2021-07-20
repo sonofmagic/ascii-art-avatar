@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./src/listener.js",
-    "myself": "node ./scripts/genMySelf.js"
+    "myself": "node ./scripts/genMySelf.js",
+    "deploy": "components deploy"
   },
   "repository": {
     "type": "git",
