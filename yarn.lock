@@ -241,7 +241,7 @@ callsites@^3.0.0:
   resolved "https://registry.nlark.com/callsites/download/callsites-3.1.0.tgz#b3630abd8943432f54b3f0519238e33cd7df2f73"
   integrity sha1-s2MKvYlDQy9Us/BRkjjjPNffL3M=
 
-canvas@^2.6.0, canvas@^2.8.0:
+canvas@^2.6.0, canvas@^2.6.1, canvas@^2.8.0:
   version "2.8.0"
   resolved "https://registry.yarnpkg.com/canvas/-/canvas-2.8.0.tgz#f99ca7f25e6e26686661ffa4fec1239bbef74461"
   integrity sha512-gLTi17X8WY9Cf5GZ2Yns8T5lfBOcGgFehDFb+JQwDqdOoBOcECS9ZWMEAqMSVcMYwXD659J8NyzjRY/2aE+C2Q==
@@ -266,6 +266,19 @@ chalk@^4.0.0:
   dependencies:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
+
+chart.js@^3.4.1:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/chart.js/-/chart.js-3.4.1.tgz#ff3b2b2a04a37b83618b4a6399a5f87ccc0f1e8a"
+  integrity sha512-0R4mL7WiBcYoazIhrzSYnWcOw6RmrRn7Q4nKZNsBQZCBrlkZKodQbfeojCCo8eETPRCs1ZNTsAcZhIfyhyP61g==
+
+chartjs-node-canvas@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/chartjs-node-canvas/-/chartjs-node-canvas-3.2.0.tgz#876deff999e3be1a3c182b30c9bafd9dfdd00901"
+  integrity sha512-MT0K28VG8BXwCdh5BdRXNw4nzJWKzcN3t/xgTr8zJ8M6uOXl7hRdtIW8rEUcylkLED8LGsnJmSkcnqlhPy841g==
+  dependencies:
+    canvas "^2.6.1"
+    tslib "^1.14.1"
 
 chownr@^2.0.0:
   version "2.0.0"
@@ -1778,6 +1791,11 @@ tsconfig-paths@^3.9.0:
     json5 "^2.2.0"
     minimist "^1.2.0"
     strip-bom "^3.0.0"
+
+tslib@^1.14.1:
+  version "1.14.1"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
+  integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
 
 tsscmp@1.0.6:
   version "1.0.6"

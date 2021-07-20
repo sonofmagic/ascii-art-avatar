@@ -4,6 +4,8 @@ const router = new Router({
 })
 
 const { createCanvas } = require('canvas')
+const { ChartJSNodeCanvas } = require('chartjs-node-canvas');
+
 
 router.get('/', (koaCtx, next) => {
   const canvas = createCanvas(200, 200, 'svg')
@@ -23,6 +25,14 @@ router.get('/', (koaCtx, next) => {
   ctx.stroke()
   const svgUrl = canvas.toBuffer().toString()
   koaCtx.body = svgUrl
+})
+
+router.get('/chart', (ctx) => {
+  const chartJSNodeCanvas = new ChartJSNodeCanvas({
+    type: 'svg', width: 800, height: 600
+  });
+
+
 })
 
 module.exports = router
