@@ -21,12 +21,14 @@
   },
   "homepage": "https://github.com/sonofmagic/ascii-art-avatar#readme",
   "dependencies": {
+    "@koa/cors": "^3.1.0",
     "@koa/router": "^10.0.0",
     "ascii-art-image": "^1.4.0",
     "canvas": "^2.8.0",
     "chart.js": "^3.4.1",
     "chartjs-node-canvas": "^3.2.0",
-    "koa": "^2.13.1"
+    "koa": "^2.13.1",
+    "koa-body": "^4.2.0"
   },
   "devDependencies": {
     "eslint": "7.12.1",

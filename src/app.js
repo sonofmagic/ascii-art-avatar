@@ -1,6 +1,13 @@
 const Koa = require('koa')
-const app = new Koa()
+const cors = require('@koa/cors')
 
+// const { isProd } = require('./env')
+const koaBody = require('koa-body')
+const app = new Koa()
+app.use(cors())
+app.use(koaBody({
+  multipart: true
+}))
 const router = require('./routers')
 
 app.use(router.routes()).use(router.allowedMethods())
