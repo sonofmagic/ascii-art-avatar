@@ -44,6 +44,17 @@ router.post('/gray', async (koaCtx) => {
   const canvas = createCanvas(image.width, image.height)
   const ctx = canvas.getContext('2d')
   ctx.drawImage(image, 0, 0)
+  const c = ctx.getImageData(0, 0, image.width, image.height)
+  for (let i = 0; i < c.height; i++) {
+    for (let j = 0; j < c.width; j++) {
+      const x = (i * 4) * c.width + (j * 4)
+      const r = c.data[x]
+      const g = c.data[x + 1]
+      const b = c.data[x + 2]
+      c.data[x] = c.data[x + 1] = c.data[x + 2] = (r + g + b) / 3
+    }
+  }
+  ctx.putImageData(c, 0, 0, 0, 0, c.width, c.height)
   koaCtx.set('Content-Type', 'image/png')
 
   koaCtx.body = canvas.toBuffer()
