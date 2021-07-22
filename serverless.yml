@@ -13,6 +13,8 @@ inputs:
   environment:
     variables:
       NODE_ENV: production
+  memorySize: 256
+  timeout: 30    
   events:
     - apigw:
         parameters:
