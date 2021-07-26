@@ -24,6 +24,7 @@
     "@antv/f2": "^3.8.9",
     "@koa/cors": "^3.1.0",
     "@koa/router": "^10.0.0",
+    "@octokit/graphql": "^4.6.4",
     "ascii-art-image": "^1.4.0",
     "canvas": "^2.8.0",
     "chart.js": "^3.4.1",
@@ -32,6 +33,7 @@
     "koa-body": "^4.2.0"
   },
   "devDependencies": {
+    "dotenv": "^10.0.0",
     "eslint": "7.12.1",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "2.22.1",
