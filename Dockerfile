@@ -5,15 +5,15 @@ WORKDIR /usr/src/bot
 
 COPY package.json yarn.lock /usr/src/bot/
 
-# 注册阿里云 alpinelinux 镜像地址,防止下载过慢
+# 注册 alpinelinux 镜像地址,防止下载过慢
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories \
   && apk add --no-cache \
   build-base \
   g++ \
-  cairo-dev \
-  jpeg-dev \
-  pango-dev \
-  giflib-dev  \
+  cairo \
+  jpeg \
+  pango \
+  giflib  \
   && apk add --update  --repository http://dl-3.alpinelinux.org/alpine/edge/testing \
   libmount \
   ttf-dejavu \
@@ -29,4 +29,3 @@ COPY ./src /usr/src/bot/src
 EXPOSE 9000
 
 ENTRYPOINT ["yarn" ,"start"]
-# CMD ["node", "index.js"]
