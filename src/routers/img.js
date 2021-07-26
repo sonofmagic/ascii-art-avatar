@@ -7,6 +7,7 @@ const { getRadarConfig } = require('./dataSource/radar')
 const { getF2PieData } = require('./dataSource/f2-pie')
 const { createCanvas, loadImage } = require('canvas')
 const { ChartJSNodeCanvas } = require('chartjs-node-canvas')
+const AsciiImage = require('ascii-art-image')
 const F2 = require('@antv/f2')
 const { getRepository } = require('../api/repository')
 router.get('/chart/demo', async (ctx, next) => {
@@ -58,6 +59,37 @@ router.post('/gray', async (koaCtx) => {
   koaCtx.set('Content-Type', 'image/png')
 
   koaCtx.body = canvas.toBuffer()
+})
+
+const promisifyAsciiWrite = (img, type) => {
+  return new Promise((resolve, reject) => {
+    img.write(undefined, (err, rendered) => {
+      if (err) {
+        reject(err)
+        return
+      }
+      resolve(rendered)
+    }, type)
+  })
+}
+
+router.post('/ascii', async (koaCtx, next) => {
+  const { type, alphabet } = koaCtx.request.body
+  const file = koaCtx.request.files.file
+  if (!file) {
+    koaCtx.throw(404, 'no file')
+  }
+  const image = await loadImage(file.path)
+  const img = new AsciiImage({
+    alphabet: 'variant4',
+    filepath: file.path,
+    width: image.width,
+    height: image.height
+  })
+
+  const rendered = await promisifyAsciiWrite(img, type)
+  koaCtx.body = rendered
+  // const image = await loadImage(file.path)
 })
 
 router.get('/chart/f2', async (koaCtx, next) => {
