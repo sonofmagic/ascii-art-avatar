@@ -10,10 +10,10 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
   && apk add --no-cache \
   build-base \
   g++ \
-  cairo \
-  jpeg \
-  pango \
-  giflib  \
+  cairo-dev \
+  jpeg-dev \
+  pango-dev \
+  giflib-dev  \
   && apk add --update  --repository http://dl-3.alpinelinux.org/alpine/edge/testing \
   libmount \
   ttf-dejavu \
