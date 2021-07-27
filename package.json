@@ -25,6 +25,7 @@
     "@koa/cors": "^3.1.0",
     "@koa/router": "^10.0.0",
     "@octokit/graphql": "^4.6.4",
+    "ansi-style-parser": "^3.0.0",
     "ansi-to-html": "^0.7.1",
     "ascii-art": "^2.8.1",
     "ascii-art-ansi": "^1.4.1",
