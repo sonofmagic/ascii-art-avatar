@@ -8,6 +8,7 @@ const { getF2PieData } = require('./dataSource/f2-pie')
 const { createCanvas, loadImage } = require('canvas')
 const { ChartJSNodeCanvas } = require('chartjs-node-canvas')
 const AsciiImage = require('ascii-art-image')
+const art = require('ascii-art')
 const F2 = require('@antv/f2')
 const { getRepository } = require('../api/repository')
 router.get('/chart/demo', async (ctx, next) => {
@@ -89,7 +90,46 @@ router.post('/ascii', async (koaCtx, next) => {
 
   const rendered = await promisifyAsciiWrite(img, type)
   koaCtx.body = rendered
+  // await require('fs').promises.writeFile('./a.txt', rendered)
+  // console.log(rendered)
   // const image = await loadImage(file.path)
+})
+
+router.post('/bit', async (koaCtx, next) => {
+  const file = koaCtx.request.files.file
+  if (!file) {
+    koaCtx.throw(404, 'no file')
+  }
+  // stipple 点画
+  // lineart 线性
+  // posterize 色彩分离
+  // const Color = require('ascii-art-ansi/colors')
+  // // var Color = require('ascii-art-ansi/colors');
+  // Color.is256 = true
+  // Color.isTrueColor = true
+  // 默认4bit , 8bit Color.is256 = true;
+  try {
+    const final = await new Promise((resolve, reject) => {
+      art.image({
+        src: file.path,
+        alphabet: 'solid'
+        // rows: 80,
+        // cols: 80,
+        // stipple: '#000000',
+        // posterize: true,
+        // threshold: 40
+      }, (err, final) => {
+        if (err) {
+          reject(err)
+          return
+        }
+        resolve(final)
+      })
+    })
+    console.log(final)
+  } catch (error) {
+    console.error(error)
+  }
 })
 
 router.get('/chart/f2', async (koaCtx, next) => {
