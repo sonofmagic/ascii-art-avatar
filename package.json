@@ -23,26 +23,26 @@
   "dependencies": {
     "@antv/f2": "^3.8.9",
     "@koa/cors": "^3.1.0",
-    "@koa/router": "^10.0.0",
-    "@octokit/graphql": "^4.6.4",
-    "ansi-style-parser": "^3.0.0",
-    "ansi-to-html": "^0.7.1",
-    "ascii-art": "^2.8.1",
+    "@koa/router": "^10.1.1",
+    "@octokit/graphql": "^4.8.0",
+    "ansi-style-parser": "^3.0.1",
+    "ansi-to-html": "^0.7.2",
+    "ascii-art": "^2.8.5",
     "ascii-art-ansi": "^1.4.1",
     "ascii-art-image": "^1.4.0",
-    "asciify-image": "^0.1.6",
+    "asciify-image": "^0.1.8",
     "canvas": "^2.8.0",
-    "chart.js": "^3.4.1",
-    "chartjs-node-canvas": "^3.2.0",
-    "koa": "^2.13.1",
+    "chart.js": "^3.6.0",
+    "chartjs-node-canvas": "^4.1.5",
+    "koa": "^2.13.4",
     "koa-body": "^4.2.0"
   },
   "devDependencies": {
     "dotenv": "^10.0.0",
-    "eslint": "7.12.1",
+    "eslint": "8.3.0",
     "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-import": "2.25.3",
     "eslint-plugin-node": "11.1.0",
-    "eslint-plugin-promise": "4.2.1"
+    "eslint-plugin-promise": "5.1.1"
   }
 }
