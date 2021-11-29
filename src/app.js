@@ -1,9 +1,21 @@
 const Koa = require('koa')
 const cors = require('@koa/cors')
-
+const views = require('koa-views')
+const path = require('path')
 // const { isProd } = require('./env')
 const koaBody = require('koa-body')
 const app = new Koa()
+
+const render = views(path.resolve(__dirname, 'views'), {
+  map: {
+    hbs: 'handlebars'
+  }
+})
+app.use(render)
+app.use((ctx) => {
+  ctx.state = { firstname: 'my title', author: 'lastname' }
+  return ctx.render('./index.hbs')
+})
 app.use(cors())
 app.use(koaBody({
   multipart: true
