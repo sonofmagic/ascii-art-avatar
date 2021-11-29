@@ -7,3 +7,5 @@ fi
 yum install libuuid-devel libmount-devel && cp /lib64/{libuuid,libmount,libblkid}.so.1 node_modules/canvas/build/Release/
 
 # "vercel-build": "yum install libuuid-devel libmount-devel && cp /lib64/{libuuid,libmount,libblkid}.so.1 node_modules/canvas/build/Release/ "
+
+# "postinstall": "patch-package && (yarn run install-bin)",
