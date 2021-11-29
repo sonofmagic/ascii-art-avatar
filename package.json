@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./src/listener.js",
     "myself": "node ./scripts/genMySelf.js",
-    "deploy": "components deploy"
+    "deploy": "components deploy",
+    "vercel-build": "yum install libuuid-devel libmount-devel && cp /lib64/{libuuid,libmount,libblkid}.so.1 node_modules/canvas/build/Release/ "
   },
   "repository": {
     "type": "git",
