@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/sonofmagic/ascii-art-avatar#readme",
   "dependencies": {
-    "@antv/f2": "^3.8.9",
+    "@antv/f2": "^3.8.10-beta.1",
     "@koa/cors": "^3.1.0",
     "@koa/router": "^10.1.1",
     "@octokit/graphql": "^4.8.0",
@@ -33,11 +33,10 @@
     "asciify-image": "^0.1.8",
     "canvas": "^2.8.0",
     "chart.js": "^3.4.1",
-    "chartjs-node-canvas": "^3.2.0",
-    "handlebars": "^4.7.7",
+    "chartjs-node-canvas": "^4.1.5",
     "koa": "^2.13.1",
     "koa-body": "^4.2.0",
-    "koa-views": "^8.0.0"
+    "koa-static": "^5.0.0"
   },
   "devDependencies": {
     "dotenv": "^10.0.0",
