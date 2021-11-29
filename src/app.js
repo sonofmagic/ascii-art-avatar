@@ -4,7 +4,7 @@ const path = require('path')
 const koaBody = require('koa-body')
 const serve = require('koa-static')
 const app = new Koa()
-app.use(serve(path.resolve(__dirname, 'public')))
+app.use(serve(path.resolve(__dirname, '..', 'public')))
 app.use(cors())
 app.use(koaBody({
   multipart: true
