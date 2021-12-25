@@ -6,7 +6,9 @@ const art = require('ascii-art')
 // const Color = require('ascii-art-ansi/colors')
 // Color.is256 = true
 
-async function createByCanvas() {
+const alphabets = ['solid', 'standard', 'variant1', 'variant2', 'variant3', 'variant4', 'ultra-wide', 'wide', 'hatching', 'bits', 'binary', 'greyscale', 'blocks']
+
+async function createByCanvas () {
   const image = await loadImage(path.resolve(__dirname, 'myself.jpg'))
   const { width, height } = image
 
@@ -19,43 +21,45 @@ async function createByCanvas() {
   fs.writeFileSync(path.resolve(__dirname, 'myself.svg'), canvas.toBuffer())
 }
 
-async function createByArt() {
+async function createByArt () {
   const rootDir = './scripts/photos'
   const files = await fsp.readdir(rootDir)
   for (let i = 0; i < files.length; i++) {
     const filename = files[i]
-    const result = await new Promise((resolve, reject) => {
-      art.image(
-        {
-          filepath: path.resolve(rootDir, filename),
-          rows: 80,
-          cols: 80,
-          stipple: '#000000',
-          posterize: true,
-          threshold: 40,
-          // alphabet:"blocks"
-        },
-        (err, result) => {
-          if (err) {
-            reject(err)
+    for (let j = 0; j < alphabets.length; j++) {
+      const alphabet = alphabets[j]
+      const result = await new Promise((resolve, reject) => {
+        art.image(
+          {
+            filepath: path.resolve(rootDir, filename),
+            rows: 80,
+            cols: 80,
+            stipple: '#000000',
+            posterize: true,
+            threshold: 40,
+            alphabet
+          },
+          (err, result) => {
+            if (err) {
+              reject(err)
+            }
+            resolve(result)
           }
-          resolve(result)
+        )
+      })
+      console.log(result)
+      await fsp.writeFile(
+        path.resolve(rootDir, path.basename(filename, path.extname(filename)) + `.${alphabet}.txt`),
+        result,
+        {
+          encoding: 'utf-8'
         }
       )
-    })
-    console.log(result)
-    await fsp.writeFile(
-      rootDir,
-      path.basename(filename, path.extname(filename)) + '.txt',
-      result,
-      {
-        encoding: 'utf-8',
-      }
-    )
+    }
   }
 }
 
 module.exports = {
   createByCanvas,
-  createByArt,
+  createByArt
 }
