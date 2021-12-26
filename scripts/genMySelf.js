@@ -26,8 +26,16 @@ async function createByArt () {
   const files = await fsp.readdir(rootDir)
   for (let i = 0; i < files.length; i++) {
     const filename = files[i]
+    const basename = path.basename(filename, path.extname(filename))
     for (let j = 0; j < alphabets.length; j++) {
       const alphabet = alphabets[j]
+      const dirpath = path.resolve(rootDir, basename)
+      if (!fs.existsSync(dirpath)) {
+        await fsp.mkdir(dirpath, {
+          recursive: true
+        })
+      }
+
       const result = await new Promise((resolve, reject) => {
         art.image(
           {
@@ -49,7 +57,7 @@ async function createByArt () {
       })
       console.log(result)
       await fsp.writeFile(
-        path.resolve(rootDir, path.basename(filename, path.extname(filename)) + `.${alphabet}.txt`),
+        path.resolve(dirpath, basename + `.${alphabet}.txt`),
         result,
         {
           encoding: 'utf-8'
