@@ -9,7 +9,8 @@
     "myself": "node ./scripts/main.js",
     "install-bin": "./scripts/install.sh",
     "deploy": "components deploy",
-    "vercel-build": "yum install libuuid-devel libmount-devel && cp /lib64/{libuuid,libmount,libblkid}.so.1 node_modules/canvas/build/Release/ "
+    "vercel-build": "yum install libuuid-devel libmount-devel && cp /lib64/{libuuid,libmount,libblkid}.so.1 node_modules/canvas/build/Release/ ",
+    "preview": "cd scripts/photos/myself && node ../../preview.js"
   },
   "repository": {
     "type": "git",
@@ -34,7 +35,7 @@
     "ascii-art-image": "^1.4.0",
     "asciify-image": "^0.1.8",
     "canvas": "^2.8.0",
-    "chart.js": "^3.6.2",
+    "chart.js": "^3.7.0",
     "chartjs-node-canvas": "^4.1.5",
     "koa": "^2.13.1",
     "koa-body": "^4.2.0",
@@ -45,10 +46,10 @@
   "devDependencies": {
     "cross-env": "^7.0.3",
     "dotenv": "^10.0.0",
-    "eslint": "8.3.0",
+    "eslint": "8.5.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "2.25.3",
     "eslint-plugin-node": "11.1.0",
-    "eslint-plugin-promise": "5.1.1"
+    "eslint-plugin-promise": "6.0.0"
   }
 }
