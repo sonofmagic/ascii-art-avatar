@@ -23,7 +23,7 @@ SCF (web type and custom image) [Tencent Cloud Account (https://cloud.tencent.co
 
 ![radar chart demo](https://svg.icebreaker.top/api/v1/img/chart/radar)
 
-## Live Demos
+<!-- ## Live Demos
 
-[image-grayscale-demo](https://www.icebreaker.top/demos/serverless-canvas)
+[image-grayscale-demo](https://www.icebreaker.top/demos/serverless-canvas) -->
 
